@@ -7,6 +7,11 @@ import java.io.InputStreamReader;
 import com.eaglecrk.awarstorm.input.ConsoleInputHandler;
 import com.eaglecrk.awarstorm.modules.AddingModule;
 
+
+/**
+ * @author awarstorm
+ *
+ */
 public class HelloWorld {
 
 	public static void main(String[] args) {
@@ -14,7 +19,7 @@ public class HelloWorld {
 		BufferedReader reader = null;
 		
 		try {
-			System.out.println("Hello World!");
+			System.out.println("Hello World!\n\n");
 	
 			reader = new BufferedReader(new InputStreamReader(System.in));
 			ConsoleInputHandler H = new ConsoleInputHandler();
@@ -25,13 +30,13 @@ public class HelloWorld {
 				int addend2 = H.getInteger(reader, "Enter Next Integer");
 				int sum = AddingModule.sum(addend1, addend2);
 				
-				System.out.println("Sum: " + sum);	
-				System.out.println("");
-				again = H.getBoolean(reader, "Would you like to add together more numbers?");
-				
-				System.out.println("");
+				System.out.println("Sum: " + sum + "\n\n");	
+				again = H.getBoolean(reader, "Would you like to add together more numbers? (yes/no)\n");
+
 			} while(again);
-			System.out.println("Goodbye!");			
+			
+			System.out.println("Goodbye!\n");	
+			
 		} finally {
 			try {
 				reader.close();

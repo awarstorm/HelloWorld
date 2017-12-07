@@ -3,7 +3,18 @@ package com.eaglecrk.awarstorm.input;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+
+
+/**
+ * Console Input Wrapper for retrieving integer and boolean values from console
+ * 
+ * @author awarstorm
+ *
+ */
+
 public class ConsoleInputHandler {
+
+	
 	public int getInteger(BufferedReader reader, String inputPrompt) {
 		boolean isInteger = false;	
 		int intInput = 0;
@@ -18,14 +29,13 @@ public class ConsoleInputHandler {
 			} catch(NumberFormatException e) {
 				//e.printStackTrace();
 				System.err.println("Invalid Number Format, Expected Integer: " + e.getMessage());
-				System.err.println("Pleast try entering a valid Integer");
-				System.err.println("");
+				System.err.println("Please try entering a valid Integer\n");
+
 				isInteger=false;
 			}catch (IOException e) {
 				//e.printStackTrace();
 				System.err.println("Invalid Input: " + e.getMessage());
-				System.err.println("Pleast try entering a valid Integer");
-				System.err.println("");
+				System.err.println("Please try entering a valid Integer\n");
 				isInteger=false;
 			}
 			
@@ -50,15 +60,13 @@ public class ConsoleInputHandler {
 				} else {
 					isValid=false;
 					System.err.println("Invalid Input");
-					System.err.println("Pleast try entering yes or no");
-					System.err.println("");
+					System.err.println("Please try entering yes or no\n");
 				}
 				
 			} catch (IOException e) {
 				//e.printStackTrace();
 				System.err.println("Invalid Input: " + e.getMessage());
-				System.err.println("Pleast try entering yes or no");
-				System.err.println("");
+				System.err.println("Please try entering yes or no\n");
 				isValid=false;
 			}
 			
