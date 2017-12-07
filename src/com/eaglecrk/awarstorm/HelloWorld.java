@@ -1,33 +1,36 @@
 package com.eaglecrk.awarstorm;
+
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
+import com.eaglecrk.awarstorm.input.ConsoleInputHandler;
 import com.eaglecrk.awarstorm.modules.AddingModule;
 
 public class HelloWorld {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		boolean again = false;
 		System.out.println("Hello World!");
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		
-		try {
-			System.out.println("Enter First Integer");
-			int int1 = Integer.parseInt(reader.readLine());
-			System.out.println("Enter Next Integer");
-			int int2 = Integer.parseInt(reader.readLine());
-			int sum = AddingModule.sum(int1, int2);
-			System.out.println("Sum: " + sum);			
-		}catch(NumberFormatException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-			System.err.println("Invalid Number Format, Expected Integer: " + e.getMessage());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-			System.err.println("Caught IOException: " + e.getMessage());
-		}
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		ConsoleInputHandler H = new ConsoleInputHandler();
+		
+		do {
+		
+			int addend1 = H.getInteger(reader, "Enter First Integer");
+			int addend2 = H.getInteger(reader, "Enter Next Integer");
+			int sum = AddingModule.sum(addend1, addend2);
+			
+			System.out.println("Sum: " + sum);	
+			System.out.println("");
+			again = H.getBoolean(reader, "Would you like to add together more numbers?");
+			
+			System.out.println("");
+		} while(again);
+		
+		System.out.println("Goodbye!");
+			
 
 	}
 
