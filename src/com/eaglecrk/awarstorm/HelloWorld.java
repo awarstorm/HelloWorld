@@ -2,7 +2,8 @@ package com.eaglecrk.awarstorm;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import com.eaglecrk.awarstorm.AddingModule;
+
+import com.eaglecrk.awarstorm.modules.AddingModule;
 
 public class HelloWorld {
 
